@@ -47,4 +47,5 @@ Developed Tableau dashboards to translate analysis into business insights:
 - Established a structured data foundation for analytics and reporting
 - Provided actionable recommendations on pricing and inventory strategy
 - Demonstrated how data-driven decisions can improve revenue performance (~15% uplift potential)
+
 **Project Link:** Coming soon
