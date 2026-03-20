@@ -5,30 +5,52 @@ Designed an end-to-end analytics workflow to simulate how a DVD rental company c
 
 ## Business Problem
 The company lacked a structured data model to understand:
-- which movie drive the most revenue
-- How demand varies across genres
-- Whether pricing and inventory decisions are aligned with profitability
+- which movie drive the most revenue?
+- How demand varies across genres?
+- Whether pricing and inventory decisions are aligned with profitability?
 
 The goal was to develop a data-driven strategy to improve revenue and operational efficiency.
 
 ## Resource
-Sakila(MySQL database)
-Tableau Dashboard: visualize the outcome
+- Sakila(MySQL database)
+- Tableau Dashboard: visualize the outcome
 
 ## Solution Approach
 
 ### 1. Data Warehouse Design (Semantic Layer)
-Built a centralized **movie performance data warehouse** by integrating 10+ relational table (rental, payment, inventory, customer, category) using SQL.
+Built a centralized **movie performance data warehouse** by integrating 10+ relational table:
 
-- Aggregated key metrics: revenue, rental frequency, inventory levels, ROI
+- Source tables: revenue, rental frequency, inventory levels, ROI
 - Designed the schema to support scalable analytical queries and decision-making
+- Built using SQL transformation (JOIN, CASE, CTEs, subqueries)
+
+Key metrics:
+- Revenue per movie
+- Rental frequency
+- Inventory utilization
+- ROI per title
+
+---
+## 🔄 ETL Pipeline
+- Cleaned and standardized raw transactional data
+- Built transformation logic to aggregate business-level metrics
+- Ensured consistency between operational data and analytical outputs
+---
 
 ### 2. Business Analysis & Insights
 Performed multi-dimensional analysis to uncover actional insights:
 
-- Identified **high-demand but underpriced movies**, suggesting pricing optimization opportunities
-- Analyzed **genre-level revenue performance** to guide inventory allocation
-- Evaluated **ROI across titles** to prioritize high-return inventory investments
+- Movie-level performance
+- Genre-level demand patterns
+- Inventory allocation efficiency
+
+Key findings:
+
+- High-demand movies were often underpriced  
+- Inventory allocation was not aligned with demand  
+- ROI varied significantly across titles  
+
+---
 
 ### 3. Decision Support & Visualization
 Developed Tableau dashboards to translate analysis into business insights:
@@ -43,14 +65,11 @@ Developed Tableau dashboards to translate analysis into business insights:
 - SQL(Joins, Aggregations, Subqueries, Data Modeling)
 - Tableau (Dashboard Design & Visualization)
 - ETL Pipelines (Data Cleansing & Transformation)
+
 ## 🚀 Key Impact
-- Established a structured data foundation for analytics and reporting
-- Provided actionable recommendations on pricing and inventory strategy
-- Demonstrated how data-driven decisions can improve revenue performance (~15% uplift potential)
+- Identified opportunities for pricing and inventory optimization  
+- Built a scalable data foundation for ongoing analytics  
+- Modeled strategies indicating **~15% potential revenue uplift**
 
 **Project Link:** Coming soon
 
-### Turn into business logic/business insights (can but into somewhere show the outcome)
-- Pricing Strategy: High-demand but low-revenue movies should be considered for price increases to improve revenue without significantly reducing demand.
-- Inventory should be reallocated toward high-demand genres to prevent stockouts and maximize rental opportunities.
-- Movie with high ROI should be prioritized for additional inventory invenstments, as they generate higher returns per unit cost.
