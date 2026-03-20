@@ -1,5 +1,10 @@
 # Data Management & Business Strategy Project - DVD Rental Company
 
+## Checklist
+- fill out Readme
+- organize my SQL file into three categories and upload
+- Visualize my dashboard by myself (considering using Power BI as my main tool)
+
 ## Project Overview
 Designed an end-to-end analytics workflow to simulate how a DVD rental company can leverage data to optimize pricing, inventory allocation, and revenue performance.
 
