@@ -4,11 +4,21 @@
 - fill out Readme
 - organize my SQL file into three categories and upload
 - Visualize my dashboard by myself (considering using Power BI as my main tool)
+## Missions
+1. draw the diagram to explain data architecture
+2. code organization: data warehouse (semantic layer)
+3. code organization: data mart (separate into different tables to do data anlaysis)
+4. revise the READ.ME
+5. dashboard buildup
+6. dashboard on README: screenshot and explanation
+7. business impact framing: after analysis, what strategy should we try and what would be the impact? (also do scenario analysis to explain how 15% revenue uplift comes from)
+8. wrap up and public the github
+---
 
 ## Project Overview
 Designed an end-to-end analytics workflow to simulate how a DVD rental company can leverage data to optimize pricing, inventory allocation, and revenue performance.
 
-## Business Problem
+## Business Questions
 The company lacked a structured data model to understand:
 - which movie drive the most revenue?
 - How demand varies across genres?
@@ -19,6 +29,10 @@ The goal was to develop a data-driven strategy to improve revenue and operationa
 ## Resource
 - Sakila(MySQL database)
 - Tableau Dashboard: visualize the outcome
+
+## Data Architecture
+- diagram (draw.io)
+- explanation
 
 ## Solution Approach
 
@@ -65,6 +79,9 @@ Developed Tableau dashboards to translate analysis into business insights:
 - Modeled scenario indicating potential **~15 revenue uplift**
 
 ---
+## Dashboard
+- screenshots
+- explanation
 
 **Tools & Technologies:** 
 - SQL(Joins, Aggregations, Subqueries, Data Modeling)
