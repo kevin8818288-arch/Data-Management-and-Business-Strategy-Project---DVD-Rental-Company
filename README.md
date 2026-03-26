@@ -1,5 +1,5 @@
 # Data Management & Business Strategy Project - DVD Rental Company
-
+## Conversation with ChatGPT: https://chatgpt.com/g/g-p-678ff9c3e3f081919e3368d81418235a-job-searching/c/69c5a856-35dc-8327-b7c1-3ddfd7c5c956
 ## Checklist
 - fill out Readme
 - organize my SQL file into three categories and upload
@@ -31,6 +31,8 @@ The goal was to develop a data-driven strategy to improve revenue and operationa
 - Tableau Dashboard: visualize the outcome
 
 ## Data Architecture
+- Schema Overview
+  <img width="771" height="686" alt="image" src="https://github.com/user-attachments/assets/307c5055-10ef-4797-bb4f-bad9205d35ca" />
 - diagram (draw.io)
 - explanation
 
