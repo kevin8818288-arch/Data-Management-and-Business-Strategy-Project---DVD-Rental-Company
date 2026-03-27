@@ -34,6 +34,8 @@ The goal was to develop a data-driven strategy to improve revenue and operationa
 - Schema Overview
   <img width="771" height="686" alt="image" src="https://github.com/user-attachments/assets/307c5055-10ef-4797-bb4f-bad9205d35ca" />
 - diagram (draw.io)
+- <img width="1075" height="410" alt="image" src="https://github.com/user-attachments/assets/8587c201-d24e-40cc-bf4e-68290d34b553" />
+
 - explanation
 
 ## Solution Approach
