@@ -54,8 +54,11 @@ SELECT
     f.rental_rate,
     f.replacement_cost,
     inv.inventory_count,
+    COUNT(DISTINCT r.rental_id) AS rental_count,
     COALESCE(SUM(p.amount), 0) AS total_revenue,
     MAX(p.payment_date) AS latest_payment_date,
+    COALESCE(SUM(p.amount), 0) / NULLIF(inv.inventory_count, 0) AS revenue_per_inventory,
+    COALESCE(SUM(p.amount), 0) / NULLIF(COUNT(DISTINCT r.rental_id), 0) AS revenue_per_rental,
     c.category_name AS category,
     l.name AS language
 FROM stg_film f
@@ -81,4 +84,3 @@ GROUP BY
     c.category_name,
     l.name
 ORDER BY total_revenue DESC;
-
