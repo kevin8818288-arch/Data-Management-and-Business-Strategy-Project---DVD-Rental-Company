@@ -37,7 +37,8 @@ The goal was to develop a data-driven strategy to improve revenue and operationa
 
 - explanation
 - Outcome
-  <img width="1075" height="410" alt="image" src="https://github.com/user-attachments/assets/8587c201-d24e-40cc-bf4e-68290d34b553" />
+  <img width="1325" height="362" alt="image" src="https://github.com/user-attachments/assets/dbb61ad1-8728-48ee-9d42-f093c1739b86" />
+
 
 
 ## Solution Approach
