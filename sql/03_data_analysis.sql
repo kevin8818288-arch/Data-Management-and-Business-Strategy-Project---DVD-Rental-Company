@@ -48,7 +48,8 @@
 	ORDER BY total_revenue DESC
 	LIMIT 50;
     -- The table shows that the key revenue driver was not derived from higher inventory, since each films has similar stock. Therefore, the demand is the key driven that affects revenue.
-
+-- ------------------------------------------------------------------------------------------------------ --
+	2. Demand vs Monetization
 - Demand vs Monetization
 1. Top rental count~= Top 10/20 most famous movie
 2. which film has low revenue per rental
