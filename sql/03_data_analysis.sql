@@ -49,7 +49,7 @@
 	LIMIT 50;
     -- The table shows that the key revenue driver was not derived from higher inventory, since each films has similar stock. Therefore, the demand is the key driven that affects revenue.
 -- ------------------------------------------------------------------------------------------------------ --
-    -- Demand vs Monetization --
+    -- Demand vs Monetization Analysis --
     -- 1. Top Demand Films
     SELECT
 		film_id,
@@ -88,20 +88,87 @@
 	  AND revenue_rank > demand_rank
 	ORDER BY monetization_gap DESC
 	LIMIT 20;
+-- -----------------------------------------------------------------------------------------------
+	-- Inventory Efficiency Analysis
+	-- 1. Overstocked Films
+		-- Which films have high inventory but low rental activity?
+		-- These may indicate inefficient inventory allocation
+	SELECT
+	    film_id,
+	    title,
+	    category,
+	    inventory_count,
+	    rental_count,
+	    rentals_per_inventory,
+	    total_revenue
+	FROM inventory_efficiency_mart
+	WHERE inventory_count > 7
+	  AND rentals_per_inventory < 3
+	ORDER BY inventory_count DESC
+	LIMIT 20;
+	-- 2. Understocked Films
+		-- Which films have high demand but limited inventory?
+		-- These represent missed revenue opportunities.
+	SELECT
+	    film_id,
+	    title,
+	    category,
+	    inventory_count,
+	    rental_count,
+	    rentals_per_inventory,
+	    total_revenue
+	FROM inventory_efficiency_mart
+	WHERE inventory_count <= 5
+	  AND rental_count > 20
+	ORDER BY rental_count DESC
+	LIMIT 20;
+	-- 3. Inventory Productivity
+		-- Which films generate high revernue per unit of inventory?
+		-- These indicate strong capital efficiency
+	SELECT
+	    film_id,
+	    title,
+	    category,
+	    inventory_count,
+	    total_revenue,
+	    revenue_per_inventory
+	FROM inventory_efficiency_mart
+	ORDER BY revenue_per_inventory DESC
+	LIMIT 20;
+-- -----------------------------------------------------------------------------------------------
+	-- ROI/ Capital Effieiency
+	-- 1. TOP ROI Films
+	SELECT
+	    film_id,
+	    title,
+	    category,
+	    total_revenue,
+	    total_cost_proxy,
+	    roi_proxy
+	FROM roi_efficiency_mart
+	WHERE total_cost_proxy > 0
+	ORDER BY roi_proxy DESC
+	LIMIT 20;
+	-- 2. Low ROI Films
+	SELECT
+	    film_id,
+	    title,
+	    category,
+	    total_revenue,
+	    total_cost_proxy,
+	    roi_proxy
+	FROM roi_efficiency_mart
+	WHERE total_cost_proxy > 0
+	ORDER BY roi_proxy ASC
+	LIMIT 20;
+	-- 3. ROI vs Demand
+		-- Which movie has high demand but low ROI
+	SELECT
+	    d.film_id,
+	    d.title,
+	    d.rental_count,
+	    r.roi_proxy
+	FROM demand_monetization_mart d
+	JOIN roi_efficiency_mart r
+	    ON d.film_id = r.film_id;
 
-- Demand vs Monetization
-1. Top rental count~= Top 10/20 most famous movie
-2. which film has low revenue per rental
-3. which movie has the high demand and low revenue ranking?
-  - too see if we need to pivot the pricing strategy
-
--Inventory Efficiency
-1. which movie has high inventory but low sales?
-2. which movie has low inventory but high rental_count
-3. high revenue per inventory
-
-- ROI/ Capital Effieiency
-1. ROI by film
-  a. high ROI
-  b. low ROI
-2. which movie has high demand but low ROI
