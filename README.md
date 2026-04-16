@@ -36,7 +36,8 @@ The goal was to develop a data-driven strategy to improve revenue and operationa
 - diagram (draw.io)
 
 - explanation
-- [Data Workflow.drawio.pdf](https://github.com/user-attachments/files/26799371/Data.Workflow.drawio.pdf)
+- <img width="430" height="566" alt="image" src="https://github.com/user-attachments/assets/d787807b-f4dd-43e8-815c-0e887fe7b023" />
+
 - Outcome
   <img width="1325" height="362" alt="image" src="https://github.com/user-attachments/assets/dbb61ad1-8728-48ee-9d42-f093c1739b86" />
 
