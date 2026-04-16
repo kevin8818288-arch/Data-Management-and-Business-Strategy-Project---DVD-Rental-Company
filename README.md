@@ -1,15 +1,5 @@
 # Data Management & Business Strategy Project - DVD Rental Company
 ## Conversation with ChatGPT: https://chatgpt.com/g/g-p-678ff9c3e3f081919e3368d81418235a-job-searching/c/69c5a856-35dc-8327-b7c1-3ddfd7c5c956
-
-## Missions
-1._ draw the diagram to explain data architecture_
-2. code organization: data warehouse (semantic layer)
-3. code organization: data mart (separate into different tables to do data anlaysis)
-4. revise the READ.ME
-5. dashboard buildup
-6. dashboard on README: screenshot and explanation
-7. business impact framing: after analysis, what strategy should we try and what would be the impact? (also do scenario analysis to explain how 15% revenue uplift comes from)
-8. wrap up and public the github
 ---
 
 ## Project Overview
@@ -32,7 +22,7 @@ The goal was to develop a data-driven strategy to improve revenue and operationa
   <img width="771" height="686" alt="image" src="https://github.com/user-attachments/assets/307c5055-10ef-4797-bb4f-bad9205d35ca" />
 - diagram (draw.io)
 
-- explanation
+- Architecture
 - <img width="430" height="566" alt="image" src="https://github.com/user-attachments/assets/d787807b-f4dd-43e8-815c-0e887fe7b023" />
 
 - Outcome
