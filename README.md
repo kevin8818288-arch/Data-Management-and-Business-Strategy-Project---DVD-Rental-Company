@@ -9,10 +9,9 @@ I designed an end-to-end analytics workflow that transforms raw transactional da
 
 ## Business Questions
 The company lacked a structured data model to understand:
-1. Which films and categories drive the most revenue?
+1. Which films and categories are the primary drivers of revenue?
 2. Which films show high demand but relatively weak revenue contribution?
 3. How can pricing and inventory allocation be optimized to improve revenue performance?
-4. What pricing and inventory actions could improve revenue?
 
 The goal was to develop a data-driven strategy to improve revenue and operational efficiency.
 
@@ -52,16 +51,31 @@ This project follows a layered analytics architecture:
 - Outcome
   <img width="1325" height="362" alt="image" src="https://github.com/user-attachments/assets/dbb61ad1-8728-48ee-9d42-f093c1739b86" />
 
-📊 Demand Distribution Insight
+### Demand Distribution Insight
 
-Due to duplicated rental counts across films, multiple films share the same demand rank (using DENSE_RANK()).
+Due to duplicated rental counts across films, multiple films share the same demand rank when using `DENSE_RANK()`.
 
 This indicates that:
 
-Customer demand is clustered rather than evenly distributed
-Many films perform similarly in terms of rental frequency
-Ranking-based filtering may include larger groups than expected
+- Customer demand is clustered rather than evenly distributed
+- Many films perform similarly in terms of rental frequency
+- Ranking-based filtering may include larger groups than expected
 
+## Repository Structure
+
+```text
+sql/
+├── 01_data_warehouse.sql      # Builds the centralized film-level analytical layer
+├── 02_data_marts.sql          # Creates business-focused views for revenue, demand, inventory, and ROI analysis
+└── 03_analysis_queries.sql    # Contains SQL queries used for EDA and business analysis
+
+dashboard/
+└── dvd_rental_powerbi_dashboard.pbix
+
+images/
+├── schema_overview.png
+├── data_architecture.png
+└── dashboard_preview.png
 ## Solution Approach
 
 ### 1. Data Warehouse Design (Semantic Layer)
@@ -134,19 +148,19 @@ Key insight:
 
 Key findings:
 
-- High-demand movies were often underpriced  
-- Inventory allocation was not aligned with demand  
-- ROI varied significantly across titles  
+- Several high-demand films showed weaker revenue contribution, suggesting potential pricing review opportunities
+- Inventory utilization varied across titles, indicating possible allocation improvement opportunities
+- Proxy ROI varied significantly across titles, suggesting differences in capital efficiency
 
 ---
 
 **- Decision Support & Visualization**
-Developed Tableau dashboards to translate analysis into business insights:
+### 3. Decision Support & Visualization
+Developed a Power BI dashboard to translate SQL-based analysis into business insights.
 
-- Enabled comparison across movies, genres, and store locations
-- Supported evaluation of **pricing v.s. demand trade-offs**
-- Modeled scenario indicating potential **~15% revenue uplift**
-**- ROI / Capital Efficiency Analysis**
+- Enabled comparison across films, categories, demand, inventory, and ROI efficiency
+- Supported evaluation of pricing vs. demand trade-offs
+- Translated monetization gaps into a prioritized list of films for pricing review
 
 Used replacement cost multiplied by inventory count as a cost proxy to estimate capital efficiency.
 
@@ -189,5 +203,4 @@ Key components include:
 This project demonstrates how raw transactional data can be transformed into a structured decision-support system. By combining data modeling, SQL analysis, and dashboard visualization, the project identifies actionable opportunities for pricing review and inventory optimization.
 
 
-**Project Link:** Coming soon
 
