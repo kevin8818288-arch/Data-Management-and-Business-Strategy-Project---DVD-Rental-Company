@@ -115,7 +115,7 @@ Purpose:
 ---
 
 ### 2. Business Analysis & Insights
-  ### - Revenue Analysis
+**- Revenue Analysis**
 
 Analyzed top revenue-generating films and category-level performance to understand which titles and genres drive business performance.
 
@@ -123,7 +123,7 @@ Key insight:
 - Revenue is concentrated among a subset of high-performing films.
 - Category-level analysis helps identify which genres may deserve more inventory or pricing attention.
 
-  ### - Demand vs Monetization Analysis
+**- Demand vs Monetization Analysis**
 
 Compared rental count with total revenue and revenue per rental to identify films with high demand but weaker revenue contribution.
 
@@ -139,13 +139,13 @@ Key findings:
 
 ---
 
-  ### - Decision Support & Visualization
+**- Decision Support & Visualization**
 Developed Tableau dashboards to translate analysis into business insights:
 
 - Enabled comparison across movies, genres, and store locations
 - Supported evaluation of **pricing v.s. demand trade-offs**
 - Modeled scenario indicating potential **~15% revenue uplift**
-  ### - ROI / Capital Efficiency Analysis
+**- ROI / Capital Efficiency Analysis**
 
 Used replacement cost multiplied by inventory count as a cost proxy to estimate capital efficiency.
 
