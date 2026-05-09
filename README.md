@@ -1,3 +1,6 @@
+- 目前剩下的有:
+  - 將dashboard 節圖存到dashboard- overview文件裡面
+  - read.me repository structure的部分要再調整一下，確認檔案名稱一致
 # Data Management & Business Strategy Project - DVD Rental Company
 
 ## Project Overview
