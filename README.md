@@ -25,6 +25,7 @@ The goal was to develop a data-driven strategy to improve revenue and operationa
 ## Data Architecture
 ### Schema Overview
   <img width="771" height="686" alt="image" src="https://github.com/user-attachments/assets/307c5055-10ef-4797-bb4f-bad9205d35ca" />
+
 ### Analytics Workflow
 <img width="430" height="566" alt="image" src="https://github.com/user-attachments/assets/d787807b-f4dd-43e8-815c-0e887fe7b023" />
 This project follows a layered analytics architecture:
