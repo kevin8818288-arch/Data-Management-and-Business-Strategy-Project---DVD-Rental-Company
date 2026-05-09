@@ -76,6 +76,7 @@ images/
 ├── schema_overview.png
 ├── data_architecture.png
 └── dashboard_preview.png
+```
 
 ## Solution Approach
 
