@@ -25,10 +25,28 @@ The goal was to develop a data-driven strategy to improve revenue and operationa
 ## Data Architecture
 ### Schema Overview
   <img width="771" height="686" alt="image" src="https://github.com/user-attachments/assets/307c5055-10ef-4797-bb4f-bad9205d35ca" />
-### diagram (draw.io)
+### Analytics Workflow
+<img width="430" height="566" alt="image" src="https://github.com/user-attachments/assets/d787807b-f4dd-43e8-815c-0e887fe7b023" />
+This project follows a layered analytics architecture:
 
-- Architecture
-- <img width="430" height="566" alt="image" src="https://github.com/user-attachments/assets/d787807b-f4dd-43e8-815c-0e887fe7b023" />
+1. **Raw Data Layer**
+   - Source tables from the Sakila MySQL database
+
+2. **Lightweight Staging Layer**
+   - Selected relevant columns
+   - Standardized naming
+   - Applied basic validation
+
+3. **Data Warehouse / Semantic Layer**
+   - Built a centralized film-level analytical dataset
+   - Integrated 10+ relational tables
+   - Defined reusable business metrics
+
+4. **Data Marts**
+   - Created business-focused views for revenue, demand vs monetization, inventory efficiency, and ROI analysis
+
+5. **Dashboard & Insights**
+   - Visualized key metrics in Power BI to support pricing and inventory decisions
 
 - Outcome
   <img width="1325" height="362" alt="image" src="https://github.com/user-attachments/assets/dbb61ad1-8728-48ee-9d42-f093c1739b86" />
@@ -46,31 +64,72 @@ Ranking-based filtering may include larger groups than expected
 ## Solution Approach
 
 ### 1. Data Warehouse Design (Semantic Layer)
-Built a centralized **movie performance data warehouse** by integrating 10+ relational table:
+Built a centralized `movie_performance_dw` table as the core analytical layer.
 
-- Source tables: revenue, rental frequency, inventory levels, ROI
-- Designed the schema to support scalable analytical queries and decision-making
-- Built using SQL transformation (JOIN, CASE, CTEs, subqueries)
+Each row represents one film and includes:
 
-Key metrics:
-- Revenue per movie
-- Rental frequency
-- Inventory utilization
-- ROI per title
+- Film attributes: title, category, language, release year
+- Pricing inputs: rental rate, replacement cost
+- Demand metrics: rental count
+- Revenue metrics: total revenue, revenue per rental
+- Inventory metrics: inventory count, revenue per inventory
+
+Key metrics include:
+
+- `total_revenue`
+- `rental_count`
+- `inventory_count`
+- `revenue_per_rental`
+- `revenue_per_inventory`
 
 ---
-## 🔄 ETL Pipeline
-- Cleaned and standardized raw transactional data
-- Built transformation logic to aggregate business-level metrics
-- Ensured consistency between operational data and analytical outputs
+## Data Marts
+
+Created four analytical data marts to support specific business questions:
+
+### Revenue Mart
+
+Purpose:
+- Identify top revenue-generating films and categories
+- Evaluate revenue concentration and business drivers
+
+### Demand & Monetization Mart
+
+Purpose:
+- Compare demand volume with revenue contribution
+- Identify high-demand films with weaker monetization
+- Detect potential pricing review opportunities
+
+### Inventory Efficiency Mart
+
+Purpose:
+- Evaluate whether inventory allocation aligns with customer demand
+- Identify overstocked or understocked films
+- Measure inventory utilization efficiency
+
+### ROI Efficiency Mart
+
+Purpose:
+- Estimate capital efficiency using replacement cost and inventory count as a proxy for investment
+- Identify films with stronger or weaker proxy ROI performance
 ---
 
 ### 2. Business Analysis & Insights
-Performed multi-dimensional analysis to uncover actional insights:
+  ### 1. Revenue Analysis
 
-- Movie-level performance
-- Genre-level demand patterns
-- Inventory allocation efficiency
+Analyzed top revenue-generating films and category-level performance to understand which titles and genres drive business performance.
+
+Key insight:
+- Revenue is concentrated among a subset of high-performing films.
+- Category-level analysis helps identify which genres may deserve more inventory or pricing attention.
+
+  ### 2. Demand vs Monetization Analysis
+
+Compared rental count with total revenue and revenue per rental to identify films with high demand but weaker revenue contribution.
+
+Key insight:
+- Several high-demand films generated lower revenue than expected relative to their demand level.
+- These films represent potential candidates for pricing review or monetization strategy adjustments.
 
 Key findings:
 
@@ -80,12 +139,18 @@ Key findings:
 
 ---
 
-### 3. Decision Support & Visualization
+  ### 3. Decision Support & Visualization
 Developed Tableau dashboards to translate analysis into business insights:
 
 - Enabled comparison across movies, genres, and store locations
 - Supported evaluation of **pricing v.s. demand trade-offs**
 - Modeled scenario indicating potential **~15% revenue uplift**
+  ### 4. ROI / Capital Efficiency Analysis
+
+Used replacement cost multiplied by inventory count as a cost proxy to estimate capital efficiency.
+
+Key insight:
+- Proxy ROI varies significantly across titles, suggesting that some films generate stronger returns relative to inventory investment.
 
 ---
 ## Dashboard
@@ -98,16 +163,30 @@ Key components include:
 - Priority Films table to translate monetization gaps into actionable pricing review candidates
 - ROI vs Demand analysis to evaluate capital efficiency
 - Inventory Allocation vs Demand analysis to assess whether inventory levels align with customer demand
+---
 
-**Tools & Technologies:** 
-- SQL(Joins, Aggregations, Subqueries, Data Modeling)
-- Power BI (Dashboard Design & Visualization)
-- ETL Pipelines (Data Cleansing & Transformation)
+## Key Impact
 
-## 🚀 Key Impact
-- Identified opportunities for pricing and inventory optimization  
-- Built a scalable data foundation for ongoing analytics  
-- Modeled strategies indicating **~15% potential revenue uplift**
+- Built a reusable analytical data foundation by integrating 10+ relational tables into a centralized film-level dataset
+- Created business-focused data marts to support revenue, pricing, inventory, and capital efficiency analysis
+- Identified pricing and inventory optimization opportunities through demand, monetization, and ROI analysis
+- Modeled strategies suggesting approximately **10–15% potential revenue uplift** under scenario-based assumptions
+
+---
+
+## Tools & Technologies
+
+- **SQL / MySQL:** joins, aggregations, CTEs, window functions, data modeling
+- **Power BI:** dashboard design, KPI cards, scatter plots, priority tables
+- **Data Modeling:** semantic layer, data marts, metric definition
+- **Business Analytics:** pricing analysis, inventory allocation, proxy ROI analysis
+
+---
+
+## Project Takeaway
+
+This project demonstrates how raw transactional data can be transformed into a structured decision-support system. By combining data modeling, SQL analysis, and dashboard visualization, the project identifies actionable opportunities for pricing review and inventory optimization.
+
 
 **Project Link:** Coming soon
 
